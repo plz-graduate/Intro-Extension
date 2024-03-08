@@ -1,44 +1,68 @@
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.scripting.executeScript({
-        target: { tabId: tabs[0].id },
-        function: function () {
-            // 특정 텍스트를 포함하는 엘리먼트를 찾습니다.
-            function findElementByText(selector, text) {
-                var elements = document.querySelectorAll(selector);
-                for (var i = 0; i < elements.length; i++) {
-                    if (elements[i].innerText.includes(text)) {
-                        return elements[i];
-                    }
-                }
-                return null;
-            }
-
-            // "2024학년도 1"을 포함하는 엘리먼트를 찾습니다.
-            var specificElement = findElementByText('th[colspan="9"]', '2023학년도 2');
-
-            // 특정 엘리먼트의 부모인 테이블을 찾습니다.
-            var table = specificElement.closest('table');
-            var cnt = table.querySelectorAll("tbody > tr");
-
-            var grade = []; // 결과를 담을 배열 생성
-            var score = [];
-            for (var i = 0; i < cnt.length; i++) {
-                grade.push(table.querySelectorAll("tbody > tr > td:nth-child(6)")[i].textContent); // 결과를 배열에 추가
-            }
-
-            console.log(grade); // 배열 출력
-
-            for (var i = 0; i < 7; i++){
-                score.push(table.querySelectorAll("tbody > tr > td:nth-child(5)")[i].textContent)
-            }
-
-            console.log(score); // 배열 출력
-
-
-
-
+function findElementByText(selector, text) {
+    let elements = document.querySelectorAll(selector);
+    for (let i = 0; i < elements.length; i++) {
+        if (elements[i].innerText.includes(text)) {
+            return elements[i];
         }
+    }
+    return null;
+}
+
+function calc(scores, times){
+    // 성적 매칭
+    let scoreTable = new Map();
+
+    scoreTable.set("A+", 4.5);
+    scoreTable.set("A0", 4.0);
+    scoreTable.set("B+", 3.5);
+    scoreTable.set("B0", 3.0);
+    scoreTable.set("C+", 2.5);
+    scoreTable.set("C0", 2.0);
+    scoreTable.set("D+", 1.5);
+    scoreTable.set("D0", 1.0);
+    scoreTable.set("F", 0);
+    scoreTable.set("P ", "P");
+    scoreTable.set("NP ", "NP");
+
+    // 계산 준비 : 영어 성적 변환
+    let numScores = [];
+    for (let i=0; i<scores.length; i++){
+        numScores.push(scoreTable.get(scores[i]));
+    }
+
+    // 계산 하기
+    let sumScore = 0;
+    let sumTime = 0;
+    for(let i=0; i<numScores.length; i++){
+        if (numScores[i] == 'P' | numScores[i] == 'NP'){
+            continue;
+        }
+        sumScore += numScores[i] * parseInt(times[i]);
+        sumTime += parseInt(times[i]);
+    }
+
+    return (sumScore / sumTime).toFixed(2);
+}
 
 
-    });
-});
+let specificElement = findElementByText('th[colspan="9"]', '2023학년도 2');
+console.log(specificElement);
+let table = specificElement.closest('table');
+let cnt = table.querySelectorAll("tbody > tr");
+
+let grade = []; // 영여 성적 ex) A+, A0, ..
+let time = []; // 강의 시수 ex) 3, 2, ...
+for (let i = 0; i < cnt.length; i++) {
+    grade.push(table.querySelectorAll("tbody > tr > td:nth-child(6)")[i].textContent); // 결과를 배열에 추가
+}
+
+for (let i = 0; i < cnt.length; i++){
+    time.push(table.querySelectorAll("tbody > tr > td:nth-child(5)")[i].textContent)
+}
+
+
+const result = calc(grade, time);
+console.log(result);
+
+chrome.runtime.sendMessage({type: "calculationResult", data: result});
+
