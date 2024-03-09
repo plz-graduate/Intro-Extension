@@ -16,4 +16,4 @@
 | [영주](https://github.com/oz115)     |          |
 | [유진](https://github.com/g0yujin)   |          |
 | [예닮](https://github.com/yedamhy)   |     ✔️   |
-| [지혜](https://github.com/Jihye511)  |          |
+| [지혜](https://github.com/Jihye511)  |     ✔️   |
