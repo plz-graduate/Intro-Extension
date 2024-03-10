@@ -1,4 +1,4 @@
-# Intro-Extension
+# Week1 : Intro-Extension
 **Week1** : 크롬 익스텐션 시작하기
 
 ## 🎯Target
