@@ -20,7 +20,7 @@
 
 <br> <br>
 
-# Week2-1 : Intro-Extension=Ⅱ
+# Week2-1 : Intro-ExtensionⅡ
 **Week2-1** : 크롬 익스텐션 시작하기 2
 
 ## 🎯Target
