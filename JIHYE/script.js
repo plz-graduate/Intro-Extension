@@ -60,6 +60,7 @@
                 console.log(avg);
                 
                 chrome.runtime.sendMessage({type: "calculationResult", avg: avg});
+                chrome.runtime.sendMessage({ type: "avgResult", avg2: avg });
                 
 
             
