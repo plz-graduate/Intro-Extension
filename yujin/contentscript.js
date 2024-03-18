@@ -1,5 +1,5 @@
 
-// 웹페이지의 DOM에 접근하여 성적 정보를 수집. 성적정보를 찾아서 평균을 계산한 후, 이를 background로 보냄
+// 웹페이지의 DOM에 접근하여 성적 정보를 수집. 성적정보를 찾아서 평균을 계산한 후, 이를 popup으로 보냄
 
 function convertGradeToPoint(grade) {
     const gradeToPoint = {
