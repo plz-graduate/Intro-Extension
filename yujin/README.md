@@ -11,14 +11,13 @@
     <script src="popup.js"></script>
     -> html 파일에 script를 작성하는 것이 아니라 별도의 파일을 만들어서 작업해야됨
     
-- `script.js` : web page 내에서 실행되는 **content script**
-  1. 직전학기 성적 html 태그 찾기
-  2. 직전 학기 평량 평균 계산하기
-  3. 계산 결과 → `popup.js`에 보내기
+- `contentscript.js` : 웹페이지의 DOM에 접근하여 성적 정보를 수집.
+  1. 성적정보를 찾아서 평균을 계산한 후
+  2. 이를 popup.js로 보냄
        
 - `popup.js` : 익스텐션 환경 script. 즉, **popup script**
     1. popup load시 필요한 script(즉, `script.js`)를 주입
     2. `script.js` 계산 결과 수신 & DOM을 update
 
 ## 1주차 
-![image]
+<img width="257" alt="image" src="https://github.com/plz-graduate/Intro-Extension/assets/136612437/502281eb-40ab-4287-b0b1-04fe50ff399c">
