@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Hello world",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["https://klas.kw.ac.kr/*"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["externalScript.js"],
+      "matches": ["https://klas.kw.ac.kr/*"]
+    }
+  ],
+  "action": {
+    "default_icon": "hello_extension.png"
+  }
+}
