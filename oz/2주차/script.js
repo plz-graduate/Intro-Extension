@@ -62,14 +62,6 @@ for (var i = 0; i < 7; i++) {
 temp = 0;
 totalCredit = 0; // 이수학점 총합을 저장할 변수
 
-// for (var i = 0; i < score.length; i++) {
-//   if (grade[i] !== "P " && grade[i] !== "NP ") {
-//     temp += tt[i] * Number(score[i]);
-//     console.log(temp);
-//     totalCredit += Number(score[i]); // 이수학점 총합 업데이트
-//     console.log(totalCredit);
-//   }
-// }
 for (var i = 0; i < score.length; i++) {
   if (grade[i] === "P " || grade[i] === "NP ") continue;
   temp += tt[i] * Number(score[i]);
@@ -81,3 +73,4 @@ console.log(totalCredit); // 이수학점 총합 확인
 const avg = (temp / totalCredit).toFixed(2); // 이수학점으로 평균 계산
 
 chrome.runtime.sendMessage({ type: "calculationResult", avg: avg });
+chrome.runtime.sendMessage({ type: "avgResult", avg2: avg });

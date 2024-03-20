@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "내 확장 프로그램",
+  "version": "1.0",
+  "description": "내 확장 프로그램에 대한 설명",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://klas.kw.ac.kr/std/cps/inqire/AtnlcScreStdPage.do"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
