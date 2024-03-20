@@ -20,11 +20,12 @@
 
 <br> <br>
 
-# Week2-1 : Intro-ExtensionⅡ
-**Week2-1** : 크롬 익스텐션 시작하기 2
+# Week2 : Intro-ExtensionⅡ
+**Week2** : 크롬 익스텐션 시작하기 2
 
 ## 🎯Target
-직전학기 성적을 팝업 창이 아닌 학생 정보 하단에 출력하기
+1. 직전학기 성적을 팝업 창이 아닌 **학생 정보 하단**에 출력하기
+2. 교양/이수 현황 정보 **다른 페이지**에서 조회
 
 ## 📅기간
 
@@ -33,6 +34,6 @@
 |                  이름                |  완성도  |
 | :----------------------------------: |  :------:|
 | [영주](https://github.com/oz115)     |          |
-| [유진](https://github.com/g0yujin)   |          |
-| [예닮](https://github.com/yedamhy)   |        |
+| [유진](https://github.com/g0yujin)   |     ✔️   |
+| [예닮](https://github.com/yedamhy)   |     ✔️   |
 | [지혜](https://github.com/Jihye511)  |    ✔️    |
